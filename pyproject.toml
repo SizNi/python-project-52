@@ -4,11 +4,12 @@ version = "0.1.0"
 description = "task-manager project"
 authors = ["SizNi <wwwwwwwww@list.ru>"]
 readme = "README.md"
-packages = [{include = "hexlet_code"}]
+packages = [{include = "task_manager"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 django = "^4.1.5"
+python-dotenv = "^0.21.0"
 
 
 [build-system]
