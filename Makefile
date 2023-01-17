@@ -29,5 +29,8 @@ start:
 trans:
 	django-admin makemessages -l ru
 
+compile:
+	django-admin compilemessages
+
 dbstart:
 	sudo service postgresql start
