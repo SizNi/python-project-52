@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+<div class="container wrapper flex-grow-1">
+      
+
+
+    <h1 class="my-4">
+      
+Пользователи
+
+    </h1>
+    
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя пользователя</th>
+    <th>Полное имя</th>
+    <th>Дата создания</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  
+    <tr>
+      <td>2</td>
+      <td>tonymakaroni</td>
+      <td>Tony1 Makoroni</td>
+      <td>20.12.2022 20:15</td>
+      <td>
+        <a href="/users/2/update/">Изменить</a>
+        <br>
+        <a href="/users/2/delete/">Удалить</a>
+      </td>
+    </tr>  
+</tbody>
+</table>
+
+  </div>
+{% endblock %}
