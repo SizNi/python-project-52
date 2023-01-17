@@ -8,12 +8,13 @@
 
     <h1 class="my-4">
       
-Пользователи
+{% translate "Пользователи"%}
 
     </h1>
     
 <table class="table table-striped">
 <thead>
+    
   <tr>
     <th>ID</th>
     <th>Имя пользователя</th>
@@ -23,20 +24,21 @@
   </tr>
 </thead>
 <tbody>
-  
+{% for user in users %}
     <tr>
-      <td>2</td>
-      <td>tonymakaroni</td>
-      <td>Tony1 Makoroni</td>
-      <td>20.12.2022 20:15</td>
+      <td>{{ user.id }}</td>
+      <td>{{ user.nickname }}</td>
+      <td>{{ user.first_name }} {{ user.last_name }}</td>
+      <td>{{ user.date_joined }}</td>
       <td>
         <a href="/users/2/update/">Изменить</a>
         <br>
         <a href="/users/2/delete/">Удалить</a>
       </td>
-    </tr>  
+    </tr>
+{% endfor %}
 </tbody>
 </table>
 
-  </div>
+</div>
 {% endblock %}

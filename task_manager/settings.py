@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
     'task_manager',
     'bootstrap4',
-    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,10 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'templates',
+            BASE_DIR / 'templates'/ 'users'
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +89,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'users.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
