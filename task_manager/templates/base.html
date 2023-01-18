@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/">{% trans 'Пользователи' %}</a>
           </li>
-          
+          {% if request.user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="/statuses/">{% trans 'Статусы' %}</a>
             </li>
@@ -39,6 +39,20 @@
             </form>
           
         </ul>
+        {% else %}
+        <ul class="navbar-nav">
+         
+          <form action="/login/" method="get">
+            <input type="hidden" name="csrfmiddlewaretoken" value="6NB3LZUttidfdLyTzkxTh45TlAQlysrED1VKbMZeDe2KYWBrSkgOsBbPL53naXN8">
+            <input class="btn nav-link" type="submit" value="Вход">
+          </form>
+          <form action="/users/create/" method="get">
+            <input type="hidden" name="csrfmiddlewaretoken" value="6NB3LZUttidfdLyTzkxTh45TlAQlysrED1VKbMZeDe2KYWBrSkgOsBbPL53naXN8">
+            <input class="btn nav-link" type="submit" value="Регистрация">
+          </form>
+        
+      </ul>
+        {% endif %}
       </div>
     </nav>
     <div class="container wrapper flex-grow-1">

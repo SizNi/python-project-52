@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 from users.models import CustomUser
+from users.forms import CreateUserForm
 
 
 class IndexView(TemplateView):
@@ -19,3 +20,14 @@ class IndexView(TemplateView):
                 'title': 'Users'
             }
         )
+
+class CreateView(CreateView):
+    
+    def get(self, request, *args, **kwargs):
+        context = {}
+        form = CreateUserForm()
+        context['registration_form'] = form
+        return render(request, 'create.html', context)
+    
+    def post(self, request, *args, **kwargs):
+        pass
