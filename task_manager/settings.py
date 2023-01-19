@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'statuses.apps.StatusesConfig',
     'users.apps.UsersConfig',
     'task_manager',
     'bootstrap4',
@@ -58,8 +59,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
-            BASE_DIR / 'templates'/ 'users'
-                 ],
+            BASE_DIR / 'templates'/ 'users',
+            BASE_DIR / 'templates'/ 'statuses',
+                ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
