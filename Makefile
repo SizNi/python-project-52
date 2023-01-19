@@ -34,3 +34,6 @@ compile:
 
 dbstart:
 	sudo service postgresql start
+
+do_poetry:
+	export PATH="$HOME/.local/bin:$PATH"

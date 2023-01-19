@@ -1,6 +1,7 @@
 {% load bootstrap4 %}
 {% load i18n %}
-
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 <html lang="ru-ru"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% trans 'Менеджер задач' %}</title>
@@ -17,7 +18,7 @@
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/users/">{% trans 'Пользователи' %}</a>
+            <a class="nav-link" href="{% url 'users_home' %}">{% trans 'Пользователи' %}</a>
           </li>
           {% if request.user.is_authenticated %}
             <li class="nav-item">
@@ -33,24 +34,18 @@
         </ul>
         <ul class="navbar-nav">
          
-            <form action="/logout/" method="post">
-              <input type="hidden" name="csrfmiddlewaretoken" value="6NB3LZUttidfdLyTzkxTh45TlAQlysrED1VKbMZeDe2KYWBrSkgOsBbPL53naXN8">
-              <input class="btn nav-link" type="submit" value="Выход">
-            </form>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">{% trans 'Выход' %}</a>
+          </li>
           
         </ul>
         {% else %}
-        <ul class="navbar-nav">
-         
-          <form action="/login/" method="get">
-            <input type="hidden" name="csrfmiddlewaretoken" value="6NB3LZUttidfdLyTzkxTh45TlAQlysrED1VKbMZeDe2KYWBrSkgOsBbPL53naXN8">
-            <input class="btn nav-link" type="submit" value="Вход">
-          </form>
-          <form action="/users/create/" method="get">
-            <input type="hidden" name="csrfmiddlewaretoken" value="6NB3LZUttidfdLyTzkxTh45TlAQlysrED1VKbMZeDe2KYWBrSkgOsBbPL53naXN8">
-            <input class="btn nav-link" type="submit" value="Регистрация">
-          </form>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">{% trans 'Вход' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'create_user' %}">{% trans 'Регистрация' %}</a>
+        </li> 
       </ul>
         {% endif %}
       </div>
@@ -63,6 +58,7 @@
         
         
       </h1>
+      {% bootstrap_messages %}
       {% block content %}
       {% endblock%}    
     </div>
