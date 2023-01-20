@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+
+<div class="container wrapper flex-grow-1">
+      
+
+
+    <h1 class="my-4">
+
+{% translate "Изменение статуса" %}    
+
+
+    </h1>
+    
+<form method="post">
+{% csrf_token %}
+<input type="hidden">
+{{ updatestatus_form }}
+{% for error in updatestatus_form.errors %}
+<small class="form-text", style=" color: red;">{{error}}</small>
+{% endfor %}
+<div class="form-group">
+  <input class="btn btn-primary" type="submit" value="Изменить">
+</div>
+</form>
+
+  </div>
+  {% endblock %}

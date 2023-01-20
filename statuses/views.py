@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
 from statuses.models import TaskStatus
-from statuses.forms import CreateStatusForm
+from statuses.forms import CreateStatusForm, UpdateStatusForm
 from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -22,7 +22,7 @@ class StatusesView(TemplateView):
             }
         )
 
-
+@method_decorator(login_required, name='dispatch')
 class CreateStatusesView(CreateView):
     
     def get(self, request, *args, **kwargs):
@@ -41,3 +41,49 @@ class CreateStatusesView(CreateView):
         else:
             context['createstatus_form'] = form
             return render(request, 'create_status.html', context)
+
+@method_decorator(login_required, name='dispatch')
+class UpdateStatusesView(UpdateView):
+    
+    def get(self, request, *args, **kwargs):
+        status_id = kwargs.get('pk')
+        context = {}
+        status = TaskStatus.objects.get(id=status_id)
+        form = UpdateStatusForm(instance=status)
+        context['updatestatus_form'] = form
+        context['pk'] = status_id
+        return render(request, 'update_status.html', context) 
+    
+    def post(self, request, *args, **kwargs):
+        status_id = kwargs.get('pk')
+        context = {}
+        status = TaskStatus.objects.get(id=status_id)
+        form = UpdateStatusForm(request.POST, instance=status)
+        if form.is_valid():
+            form.save()
+            messages.info(request, _('Статус успешно изменён'))
+            return redirect('statuses_home')
+        else:
+            context['updatestatus_form'] = form
+            context['pk'] = status_id
+            return render(request, 'update_status.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class DeleteStatusView(DeleteView):
+    
+    def get(self, request, *args, **kwargs):
+        status_id = kwargs.get('pk')
+        context = {}
+        status = TaskStatus.objects.get(id=status_id)
+        context['status'] = status
+        return render(request, 'delete_status.html', context) 
+        
+    def post(self, request, *args, **kwargs):
+        status_id = kwargs.get('pk')
+        context = {}
+        status = TaskStatus.objects.get(id=status_id)
+        context['status'] = status
+        status.delete()
+        messages.info(request, _('Статус удален'))
+        return redirect('statuses_home')
