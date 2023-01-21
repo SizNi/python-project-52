@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+<div class="container wrapper flex-grow-1">
+      
+
+
+    <h1 class="my-4">
+
+{% translate "Задачи"%}
+
+
+    </h1>
+    
+<a class="nav-link" href="/tasks/create/">{% translate "Создать задачу"%}</a>
+
+
+
+
+<div class="card mb-3">
+<div class="card-body bg-light">
+  <form class="form-inline center" method="get">
+    {% csrf_token %}
+    <div class="form-group"><label for="id_status">{% translate "Статус"%}</label><div class="ml-2 mr-3"><select name="status" class="form-control" title="" id="id_status">
+<option value="" selected="">---------</option>
+
+<option value="3">Statyus</option>
+
+</select></div></div>
+    <div class="form-group"><label for="id_executor">{% translate "Исполнитель"%}</label><div class="mr-3 ml-2"><select name="executor" class="form-control" title="" id="id_executor">
+<option value="" selected="">---------</option>
+
+<option value="2">Tony1 Makoroni</option>
+
+
+</select></div></div>
+    <div class="form-group"><label for="id_label">{% translate "Метка"%}</label><div class="mr-3 ml-2"><select name="label" class="form-control" title="" id="id_label">
+<option value="" selected="">---------</option>
+
+<option value="1">Aqа1</option>
+
+</select></div></div>
+    <div class="form-group"><div class="mr-3"><div class="form-check"><input type="checkbox" name="self_tasks" class="form-check-input" id="id_self_tasks"><label class="form-check-label" for="id_self_tasks">{% translate "Только свои задачи"%}</label></div></div></div>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Показать">
+    </div>
+  </form>
+</div>
+</div>
+
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>{% translate "Имя"%}</th>
+    <th>{% translate "Статус"%}</th>
+    <th>{% translate "Автор"%}</th>
+    <th>{% translate "Исполнитель"%}</th>
+    <th>{% translate "Дата создания"%}</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+{% for task in tasks %}
+    <tr>
+      <td>{{task.id }}</td>
+      <td>
+        <a href="#">{{ task.name }}</a>
+      </td>
+      <td>{{ task.status }}</td>
+      <td>{{ task.creator }}</td>
+      <td>{{ task.task_user }}</td>
+      <td>{{ task.created_date }}</td>
+      <td>
+        <a href="#">{% translate "Изменить"%}</a>
+        <br>
+        <a href="#">{% translate "Удалить"%}</a>
+      </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+  </div>
+
+{% endblock %}

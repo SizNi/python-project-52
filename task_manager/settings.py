@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'tasks.apps.TasksConfig',
     'statuses.apps.StatusesConfig',
     'task_manager',
     'bootstrap4',
@@ -61,6 +62,7 @@ TEMPLATES = [
             BASE_DIR / 'templates',
             BASE_DIR / 'templates'/ 'users',
             BASE_DIR / 'templates'/ 'statuses',
+            BASE_DIR / 'templates'/ 'tasks',
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
