@@ -15,7 +15,7 @@ class Task(models.Model):
         null=True,
         default='',
         related_name='task_users',
-        verbose_name=_('Task_user')
+        verbose_name=_('Исполнитель')
     )
     creator = models.ForeignKey(
         to=get_user_model(),
@@ -23,7 +23,7 @@ class Task(models.Model):
         blank=False,
         default='',
         related_name='creator',
-        verbose_name=_('Creator')
+        verbose_name=_('Автор')
     )
     status = models.ForeignKey(
         to='statuses.TaskStatus',
@@ -31,7 +31,7 @@ class Task(models.Model):
         blank=False,
         default='',
         related_name='statuses',
-        verbose_name=_('Status')
+        verbose_name=_('Статус')
     )
     
     def __str__(self):

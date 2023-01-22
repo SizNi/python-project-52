@@ -101,6 +101,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-bootstrap-form"
+version = "3.4"
+description = "django-bootstrap-form"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-bootstrap-form-3.4.tar.gz", hash = "sha256:de3f7893e515352834d446c441c0cb861637f92cebbe59d8229469c6cd3dc640"},
+]
+
+[package.dependencies]
+django = ">=1.5"
+
+[[package]]
 name = "django-bootstrap4"
 version = "22.3"
 description = "Bootstrap 4 for Django"
@@ -114,6 +128,21 @@ files = [
 
 [package.dependencies]
 beautifulsoup4 = ">=4.8.0"
+Django = ">=3.2"
+
+[[package]]
+name = "django-filter"
+version = "22.1"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-filter-22.1.tar.gz", hash = "sha256:ed473b76e84f7e83b2511bb2050c3efb36d135207d0128dfe3ae4b36e3594ba5"},
+    {file = "django_filter-22.1-py3-none-any.whl", hash = "sha256:ed429e34760127e3520a67f415bec4c905d4649fbe45d0d6da37e6ff5e0287eb"},
+]
+
+[package.dependencies]
 Django = ">=3.2"
 
 [[package]]
@@ -290,4 +319,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "66fcf2df6493f82e625a2620781cce1d598464aca2013fd7016273b92a1e162b"
+content-hash = "163354780ecb1a5b93de69064015d0845dbe8b3c978963f96639e3524b8cd919"
