@@ -52,9 +52,9 @@
             <td>{{ task.task_user }}</td>
             <td>{{ task.created_date }}</td>
             <td>
-              <a href="#">{% translate 'Изменить' %}</a>
+              <a href="{% url 'task_update' task.id %}">{% translate 'Изменить' %}</a>
               <br />
-              <a href="#">{% translate 'Удалить' %}</a>
+              <a href="{% url 'task_delete' task.id %}">{% translate 'Удалить' %}</a>
             </td>
           </tr>
         {% endfor %}
