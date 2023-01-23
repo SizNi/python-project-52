@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, ListView
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, ListView, DetailView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
 from tasks.models import Task
@@ -61,6 +61,13 @@ class TasksDeleteView(TaskDeletePermission, SuccessMessageMixin, DeleteView):
                      'btn':_('Да, удалить'),
                      }
     permission_required='task.creator'
+
+class TaskView(DetailView):
+    model = Task
+    template_name = 'task.html'
+    context_object_name = "task"
+    extra_context = {'title': _('Просмотр задачи'),
+                     }
 
             
         
