@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, ListView
 from django_filters.views import FilterView
+from django.contrib.messages.views import SuccessMessageMixin
 from tasks.models import Task
 from statuses.models import TaskStatus
 from users.models import CustomUser
@@ -21,3 +22,15 @@ class TasksView(FilterView):
     template_name = 'tasks.html'
     context_object_name = "tasks"
     extra_context = {'title': _('Tasks')}
+
+@method_decorator(login_required, name='dispatch')
+class TasksCreateView(CreateView):
+    model = Task
+    fields = ['name', 'description', 'status', 'creator']
+    template_name = 'task_create.html'
+    context_object_name = "tasks"
+    success_url = reverse_lazy('tasks_home')
+    success_message = _('Задача успешно создана')
+    extra_context = {'title': _('Создание задачи'),
+                     'btn':_('Создать'),
+                     }

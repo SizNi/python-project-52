@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 
 class Task(models.Model):
-    name = models.CharField(max_length=120, verbose_name=_('Name'), blank=False)
-    description = models.TextField(verbose_name=_('Description'), blank=True)
+    name = models.CharField(max_length=120, verbose_name=_('Имя'), blank=False)
+    description = models.TextField(verbose_name=_('Описание'), blank=True)
     created_date = models.DateTimeField(verbose_name=_("Created date"),
                                         default=timezone.now)
     task_user = models.ForeignKey(
