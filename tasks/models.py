@@ -33,6 +33,6 @@ class Task(models.Model):
         related_name='statuses',
         verbose_name=_('Статус')
     )
-    
+
     def __str__(self):
         return self.name

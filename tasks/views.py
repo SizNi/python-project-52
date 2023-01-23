@@ -6,7 +6,6 @@ from tasks.models import Task
 from statuses.models import TaskStatus
 from users.models import CustomUser
 from tasks.filters import TasksFilterForm
-from django.contrib.auth import login, authenticate, logout
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
@@ -24,9 +23,9 @@ class TasksView(FilterView):
     extra_context = {'title': _('Tasks')}
 
 @method_decorator(login_required, name='dispatch')
-class TasksCreateView(CreateView):
+class TasksCreateView(SuccessMessageMixin, CreateView):
     model = Task
-    fields = ['name', 'description', 'status', 'creator']
+    fields = ['name', 'description', 'status', 'task_user']
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')
@@ -34,3 +33,8 @@ class TasksCreateView(CreateView):
     extra_context = {'title': _('Создание задачи'),
                      'btn':_('Создать'),
                      }
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
+        
+        
