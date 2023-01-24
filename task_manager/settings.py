@@ -66,6 +66,7 @@ TEMPLATES = [
             BASE_DIR / 'templates'/ 'users',
             BASE_DIR / 'templates'/ 'statuses',
             BASE_DIR / 'templates'/ 'tasks',
+            BASE_DIR / 'templates'/ 'labels',
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
