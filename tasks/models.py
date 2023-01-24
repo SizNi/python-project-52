@@ -33,6 +33,15 @@ class Task(models.Model):
         related_name='statuses',
         verbose_name=_('Статус')
     )
+    labels = models.ManyToManyField(
+        'labels.Labels', through='TaskLabelRel',
+        through_fields=('task', 'label'), blank=True,
+        related_name='labels', verbose_name=_('Метки'),
+    )
 
     def __str__(self):
         return self.name
+
+class TaskLabelRel(models.Model):
+    task = models.ForeignKey(to='tasks.Task', on_delete=models.CASCADE)
+    label = models.ForeignKey(to='labels.Labels', on_delete=models.PROTECT)

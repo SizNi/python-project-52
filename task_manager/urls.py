@@ -4,6 +4,7 @@ from task_manager import views
 
 urlpatterns = [
     path('', views.Index.as_view(), name = 'home'),
+    path('labels/', include('labels.urls')),
     path('users/', include('users.urls')),
     path('statuses/', include('statuses.urls')),
     path('tasks/', include('tasks.urls')),

@@ -1,17 +1,12 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
 from tasks.models import Task
-from statuses.models import TaskStatus
-from users.models import CustomUser
 from tasks.filters import TasksFilterForm
 from django.urls import reverse_lazy
-from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from urllib import request
 from tasks.permission import TaskDeletePermission
 
 
@@ -26,7 +21,7 @@ class TasksView(FilterView):
 @method_decorator(login_required, name='dispatch')
 class TasksCreateView(SuccessMessageMixin, CreateView):
     model = Task
-    fields = ['name', 'description', 'status', 'task_user']
+    fields = ['name', 'description', 'status', 'task_user', 'labels']
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')
@@ -41,7 +36,7 @@ class TasksCreateView(SuccessMessageMixin, CreateView):
 @method_decorator(login_required, name='dispatch')
 class TasksUpdateView(SuccessMessageMixin, UpdateView):
     model = Task
-    fields = ['name', 'description', 'status', 'task_user']
+    fields = ['name', 'description', 'status', 'task_user', 'labels']
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')

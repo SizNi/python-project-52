@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'bootstrapform',
+    'labels.apps.LabelsConfig',
     'tasks.apps.TasksConfig',
     'users.apps.UsersConfig',
     'statuses.apps.StatusesConfig',

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+  <div class="container wrapper flex-grow-1">
+    <h1 class="my-4">{% translate 'Задачи' %}</h1>
+    <a class="nav-link" href="/labels/create/">{% translate 'Создать задачу' %}</a>
+    <div class="card mb-3">
+        <div class="card-body bg-light">
+            <form method="get" class="form-check">
+                {% bootstrap_form filter.form %}
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Показать" />
+                  </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>
+            {% translate 'Имя' %}
+          </th>
+          <th>
+            {% translate 'Статус' %}
+          </th>
+          <th>
+            {% translate 'Автор' %}
+          </th>
+          <th>
+            {% translate 'Исполнитель' %}
+          </th>
+          <th>
+            {% translate 'Дата создания' %}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for label in labels %}
+          <tr>
+            <td>{{ label.id }}</td>
+            <td>
+              <a href="{{ label.id }}/">{{ label.name }}</a>
+            </td>
+            <td>{{ label.status }}</td>
+            <td>{{ label.creator }}</td>
+            <td>{{ label.label_user }}</td>
+            <td>{{ label.created_date }}</td>
+            <td>
+              <a href="#">{% translate 'Изменить' %}</a>
+              <br />
+              <a href="#">{% translate 'Удалить' %}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

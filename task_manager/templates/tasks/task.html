@@ -38,14 +38,17 @@
     </div>
     <div class="row p-1">
       <div class="col">
+      {% if task.labels.all %}
         <h6>Метки:</h6>
-        <ul>
-          
-            <li>123</li>
-          
+        <ul>    
+          {% for label in task.labels.all %}
+            <li>{{label}}</li>
+          {% endfor %}
         </ul>
+        {% endif %}
       </div>
     </div>
+
     <div class="row p-1">
       <div class="col">
         <a href="/tasks/{{ task.id }}/update">{% trans 'Изменить' %}</a>

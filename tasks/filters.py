@@ -20,4 +20,4 @@ class TasksFilterForm(FilterSet):
     
     class Meta:
         model = Task
-        fields = ['status', 'creator', 'task_user']
+        fields = ['status', 'task_user', 'labels']
