@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -82,6 +83,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'task_manager.wsgi.application'
 
+ROLLBAR = {
+    'access_token': 'f2cd71a0417f4ae7a9bf5ae638fc027f',
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
