@@ -4,9 +4,6 @@ dev:
 install:
 	poetry install
 
-pytest:
-	poetry run pytest
-
 new_app:
 	#django-admin startapp app_name
 
@@ -20,6 +17,9 @@ lint:
 # тесты
 test:
 	python manage.py test
+
+pytest:
+	poetry run pytest
 
 test-coverage:
 	poetry run pytest --cov=task_manager --cov-report xml
