@@ -13,6 +13,7 @@ PGUSER = os.environ.get('PGUSER')
 PGPASSWORD = os.environ.get('PGPASSWORD')
 PGHOST = os.environ.get('PGHOST')
 PGPORT = os.environ.get('PGPORT')
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -95,7 +96,9 @@ ROLLBAR = {
 
 DATABASES = {
     'default': {
+        
         'ENGINE': 'django.db.backends.postgresql',
+        'DATABASE_URL': DATABASE_URL,
         'NAME': PGNAME,                      
         'USER': PGUSER,
         'PASSWORD': PGPASSWORD,
