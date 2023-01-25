@@ -17,6 +17,9 @@ start:
 lint:
 	poetry run flake8
 
+test-coverage:
+	poetry run pytest --cov=task_manager --cov-report xml
+
 # миграции
 create_model:
 	python manage.py makemigrations

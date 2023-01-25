@@ -19,6 +19,13 @@ jobs:
           poetry install
       - name: Run Linter
         run: make lint
+      - name: Send test coverage
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
