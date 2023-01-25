@@ -2,8 +2,10 @@ name: GitHub Actions
 run-name: ${{ github.actor }}, GA working
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
     steps:
       
       - name: Check out repository code
@@ -16,11 +18,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          poetry install
+          make install
       - name: Run Linter
         run: make lint
       - name: Run test
-        run: make test
+        run: |
+          make test
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
