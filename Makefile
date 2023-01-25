@@ -39,4 +39,8 @@ do_poetry:
 	export PATH="$HOME/.local/bin:$PATH"
 
 railway:
+	python manage.py migrate
 	gunicorn task_manager.wsgi
+
+lint:
+	poetry run flake8

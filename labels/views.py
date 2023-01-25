@@ -1,5 +1,10 @@
 from django.shortcuts import redirect
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, ListView
+from django.views.generic import (
+    ListView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -55,7 +60,7 @@ class LabelDeleteView(SuccessMessageMixin, DeleteView):
                      }
 
     def post(self, request, *args, **kwargs):
-        if self.get_object().labels.count():
+        if self.get_object().tasks.count():
             messages.error(
                 self.request,
                 _('Невозможно удалить метку, потому что она используется')

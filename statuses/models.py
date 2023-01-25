@@ -11,7 +11,7 @@ class TaskStatus(models.Model):
         verbose_name=_("Created date"),
         default=timezone.now
     )
-    
+
     USERNAME_FIELD = "status"
 
     def __str__(self):
