@@ -16,7 +16,7 @@ lint:
 
 # тесты
 test:
-	python manage.py test
+	python3 manage.py test
 
 pytest:
 	poetry run pytest
