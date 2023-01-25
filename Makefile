@@ -17,6 +17,10 @@ start:
 lint:
 	poetry run flake8
 
+# тесты
+test:
+	python manage.py test
+
 test-coverage:
 	poetry run pytest --cov=task_manager --cov-report xml
 
@@ -29,8 +33,6 @@ migration:
 
 commit_migration:
 	python manage.py migrate
-
-
 
 # создание пакетов для различных языков
 trans:
