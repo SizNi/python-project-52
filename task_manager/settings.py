@@ -125,9 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://python-project-52-production-e016.up.railway.app/'
-]
+CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-e016.up.railway.app/']
 
 LOGIN_URL = 'login'
 # Internationalization

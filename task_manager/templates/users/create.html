@@ -23,6 +23,7 @@
       <small class="form-text", style=" color: red;">{{error}}</small>
       {% endfor %}
       <div class="form-group">
+        {% csrf_token %}
         <input class="btn btn-primary" type="submit" value="Зарегистрировать" />
       </div>
     </form>
