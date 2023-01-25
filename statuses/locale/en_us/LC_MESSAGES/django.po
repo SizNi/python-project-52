@@ -18,37 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: apps.py:8 models.py:22
-msgid "Statuses"
-msgstr ""
+msgid "Статусы"
+msgstr "Statuses"
 
 #: forms.py:11 forms.py:25
-msgid "Имя"
-msgstr ""
+msgid "Name"
+msgstr "Name"
 
 #: forms.py:16 forms.py:30
 msgid "Имя статуса"
-msgstr ""
+msgstr "Status name"
 
 #: models.py:8
-msgid "Name"
-msgstr ""
+msgid "Имя"
+msgstr "Name"
 
 #: models.py:11
-msgid "Created date"
-msgstr ""
+msgid "Дата создания"
+msgstr "Created date"
 
 #: models.py:21
-msgid "Status"
-msgstr ""
+msgid "Статус"
+msgstr "Status"
 
 #: views.py:39
 msgid "Статус создан!"
-msgstr ""
+msgstr "Status created!"
 
 #: views.py:64
 msgid "Статус успешно изменён"
-msgstr ""
+msgstr "Status updated!"
 
 #: views.py:88
 msgid "Статус удален"
-msgstr ""
+msgstr "Status deleted"

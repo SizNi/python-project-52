@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 02:34+0300\n"
+"POT-Creation-Date: 2023-01-25 18:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,155 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/base.html:6 templates/base.html:13
+#: forms.py:11 forms.py:17 templates/users/users.html:20
+#, fuzzy
+#| msgid "Пользователи"
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: forms.py:15
+msgid "Введите логин"
+msgstr "Login"
+
+#: forms.py:21
+msgid "Пользователь с таким именем уже есть"
+msgstr "User already exists"
+
+#: forms.py:23 forms.py:29
+msgid "Пароль"
+msgstr "Password"
+
+#: forms.py:27
+msgid "введите пароль"
+msgstr "password"
+
+#: settings.py:136
+msgid "Английский"
+msgstr "English"
+
+#: settings.py:137
+msgid "Русский"
+msgstr "Russian"
+
+#: templates/base.html:7 templates/base.html:14
 msgid "Менеджер задач"
 msgstr "Task manager"
 
-#: templates/base.html:20
+#: templates/base.html:21 templates/users/users.html:11
 msgid "Пользователи"
 msgstr "Users"
 
-#: templates/base.html:24
+#: templates/base.html:25 templates/statuses/statuses.html:10
 msgid "Статусы"
 msgstr "Statuses"
 
-#: templates/base.html:27
+#: templates/base.html:28
 msgid "Метки"
 msgstr "Marks"
 
-#: templates/base.html:30
+#: templates/base.html:31 templates/tasks/tasks.html:6
 msgid "Задачи"
 msgstr "Tasks"
+
+#: templates/base.html:38
+msgid "Выход"
+msgstr "Logout"
+
+#: templates/base.html:44 templates/login.html:18
+msgid "Вход"
+msgstr "Login"
+
+#: templates/base.html:47 templates/users/create.html:11
+msgid "Регистрация"
+msgstr "Signup"
+
+#: templates/labels/label_delete.html:19
+#: templates/statuses/delete_status.html:19 templates/tasks/task_delete.html:19
+#: templates/users/delete.html:19
+msgid "Вы уверены, что хотите удалить"
+msgstr "Are you sure, that you want to delete"
+
+#: templates/labels/labels.html:7
+msgid "Создать метку"
+msgstr "Create label"
+
+#: templates/labels/labels.html:13 templates/statuses/statuses.html:20
+#: templates/tasks/tasks.html:26
+msgid "Имя"
+msgstr "Name"
+
+#: templates/labels/labels.html:16 templates/statuses/statuses.html:21
+#: templates/tasks/task.html:36 templates/tasks/tasks.html:38
+#: templates/users/users.html:22
+msgid "Дата создания"
+msgstr "Creating date"
+
+#: templates/labels/labels.html:29 templates/statuses/statuses.html:32
+#: templates/tasks/task.html:54 templates/tasks/tasks.html:55
+#: templates/users/users.html:35
+msgid "Изменить"
+msgstr "Update"
+
+#: templates/labels/labels.html:31 templates/statuses/statuses.html:34
+#: templates/tasks/task.html:56 templates/tasks/tasks.html:57
+#: templates/users/users.html:37
+msgid "Удалить"
+msgstr "Delete"
+
+#: templates/statuses/create_status.html:12 templates/statuses/statuses.html:15
+msgid "Создать статус"
+msgstr "Create status"
+
+#: templates/statuses/delete_status.html:14
+msgid "Удаление статуса"
+msgstr "Delete status"
+
+#: templates/statuses/update_status.html:12
+msgid "Изменение статуса"
+msgstr "Update status"
+
+#: templates/tasks/task.html:24 templates/tasks/tasks.html:32
+msgid "Автор"
+msgstr "Author"
+
+#: templates/tasks/task.html:28 templates/tasks/tasks.html:35
+msgid "Исполнитель"
+msgstr "Executor"
+
+#: templates/tasks/task.html:32 templates/tasks/tasks.html:29
+#, fuzzy
+#| msgid "Статусы"
+msgid "Статус"
+msgstr "Status"
+
+#: templates/tasks/tasks.html:7
+#, fuzzy
+#| msgid "Менеджер задач"
+msgid "Создать задачу"
+msgstr "Task manager"
+
+#: templates/users/delete.html:14
+#, fuzzy
+#| msgid "Пользователи"
+msgid "Удаление пользователя"
+msgstr "Users"
+
+#: templates/users/update.html:11
+msgid "Обновление информации"
+msgstr "Updating information"
+
+#: templates/users/users.html:21
+msgid "Полное имя"
+msgstr "Full name"
+
+#: views.py:34
+msgid "Вход произведен!"
+msgstr "Login succes"
+
+#: views.py:36
+msgid "Неверное имя пользователя или пароль."
+msgstr "Wrong username or password"
+
+#: views.py:43
+msgid "Успешно вышли!"
+msgstr "Logout success"

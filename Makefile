@@ -27,7 +27,7 @@ start:
 	gunicorn task_manager.wsgi
 
 trans:
-	django-admin makemessages -l ru
+	django-admin makemessages -l en_us
 
 compile:
 	django-admin compilemessages
@@ -39,5 +39,4 @@ do_poetry:
 	export PATH="$HOME/.local/bin:$PATH"
 
 railway:
-	railway run python manage.py migrate
 	gunicorn task_manager.wsgi

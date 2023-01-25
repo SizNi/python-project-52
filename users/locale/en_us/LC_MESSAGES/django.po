@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-25 19:03+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: apps.py:8
+msgid "Пользователи"
+msgstr "Users"
+
+#: forms.py:10 forms.py:15 forms.py:67 forms.py:71
+msgid "Имя"
+msgstr "Name"
+
+#: forms.py:17 forms.py:22 forms.py:73 forms.py:77
+msgid "Фамилия"
+msgstr "Second name"
+
+#: forms.py:24 forms.py:31 forms.py:79 forms.py:84
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: forms.py:28
+msgid "Обязательное поле. Не более 20 символов."
+msgstr "Required. Less than 20 symbols."
+
+#: forms.py:35 forms.py:88
+msgid "Пользователь с таким именем уже есть"
+msgstr "Username alrready exists"
+
+#: forms.py:37 forms.py:45 forms.py:90 forms.py:97
+msgid "Пароль"
+msgstr "Password"
+
+#: forms.py:42 forms.py:94
+msgid "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Minimal length - 3 symbols"
+
+#: forms.py:47 forms.py:55 forms.py:99 forms.py:106
+msgid "Подтверждение пароля"
+msgstr "Password again"
+
+#: forms.py:51 forms.py:102
+msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
+msgstr "Entry your password again"
+
+#: forms.py:82
+msgid "Не более 20 символов."
+msgstr "Less than 20 symbols"
+
+#: manager.py:15
+msgid "Имя пользователя обязательно"
+msgstr "The nickname must be set"
+
+#: manager.py:30
+msgid "Superuser must have is_staff=True."
+msgstr ""
+
+#: manager.py:32
+msgid "Superuser must have is_superuser=True."
+msgstr ""
+
+#: views.py:44
+msgid "Пользователь создан, вход произведен!"
+msgstr "User created, entry success"
+
+#: views.py:64
+msgid "У вас нет прав для редактирования этого пользователя"
+msgstr "You cant edit this user"
+
+#: views.py:74
+msgid "Информация обновлена!"
+msgstr "Information update successfully"
+
+#: views.py:93
+msgid "У вас нет прав для удаления этого пользователя"
+msgstr "You have no roots for delete this user"
+
+#: views.py:103
+msgid "Пользователь удален!"
+msgstr "User delete!"
