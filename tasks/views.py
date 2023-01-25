@@ -18,6 +18,7 @@ class TasksView(FilterView):
     context_object_name = "tasks"
     extra_context = {'title': _('Tasks')}
 
+
 @method_decorator(login_required, name='dispatch')
 class TasksCreateView(SuccessMessageMixin, CreateView):
     model = Task
@@ -27,11 +28,13 @@ class TasksCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('tasks_home')
     success_message = _('Задача успешно создана')
     extra_context = {'title': _('Создание задачи'),
-                     'btn':_('Создать'),
+                     'btn': _('Создать'),
                      }
+
     def form_valid(self, form):
         form.instance.creator = self.request.user
         return super().form_valid(form)
+
 
 @method_decorator(login_required, name='dispatch')
 class TasksUpdateView(SuccessMessageMixin, UpdateView):
@@ -42,8 +45,9 @@ class TasksUpdateView(SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('tasks_home')
     success_message = _('Задача успешно обновлена')
     extra_context = {'title': _('Обновление задачи'),
-                     'btn':_('обновить'),
+                     'btn': _('обновить'),
                      }
+
 
 @method_decorator(login_required, name='dispatch')
 class TasksDeleteView(TaskDeletePermission, SuccessMessageMixin, DeleteView):
@@ -53,9 +57,10 @@ class TasksDeleteView(TaskDeletePermission, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('tasks_home')
     success_message = _('Задача успешно удалена')
     extra_context = {'title': _('Удаление задачи'),
-                     'btn':_('Да, удалить'),
+                     'btn': _('Да, удалить'),
                      }
-    permission_required='task.creator'
+    permission_required = 'task.creator'
+
 
 class TaskView(DetailView):
     model = Task
@@ -63,8 +68,3 @@ class TaskView(DetailView):
     context_object_name = "task"
     extra_context = {'title': _('Просмотр задачи'),
                      }
-
-            
-        
-        
-        

@@ -1,9 +1,7 @@
 from django import forms
 from django.utils.translation import gettext as _
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
-from django.utils.safestring import mark_safe
 
 
 class CreateUserForm(UserCreationForm):
@@ -112,4 +110,3 @@ class UpdateUserForm(UserCreationForm):
         fields = (
             'first_name', 'last_name', 'nickname', 'password1', 'password2'
         )
-

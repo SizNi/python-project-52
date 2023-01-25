@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 
+
 class Task(models.Model):
     name = models.CharField(max_length=120, verbose_name=_('Имя'), blank=False)
     description = models.TextField(verbose_name=_('Описание'), blank=True)
@@ -41,6 +42,7 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class TaskLabelRel(models.Model):
     task = models.ForeignKey(to='tasks.Task', on_delete=models.CASCADE)
