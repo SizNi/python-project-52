@@ -8,11 +8,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DB_NAME = os.environ.get('DB_NAME')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_HOST = os.environ.get('DB_HOST')
-DB_PORT = os.environ.get('DB_PORT')
+PGNAME = os.environ.get('PGNAME')
+PGUSER = os.environ.get('PGUSER')
+PGPASSWORD = os.environ.get('PGPASSWORD')
+PGHOST = os.environ.get('PGHOST')
+PGPORT = os.environ.get('PGPORT')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,11 +96,11 @@ ROLLBAR = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,                      
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
+        'NAME': PGNAME,                      
+        'USER': PGUSER,
+        'PASSWORD': PGPASSWORD,
+        'HOST': PGHOST,
+        'PORT': PGPORT,
     }
 }
 
