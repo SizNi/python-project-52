@@ -37,3 +37,7 @@ dbstart:
 
 do_poetry:
 	export PATH="$HOME/.local/bin:$PATH"
+
+railway:
+	railway run python manage.py migrate
+	gunicorn task_manager.wsgi
