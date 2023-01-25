@@ -8,7 +8,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-PGNAME = os.environ.get('PGNAME')
+PGNAME = os.environ.get('PGDATABASE')
 PGUSER = os.environ.get('PGUSER')
 PGPASSWORD = os.environ.get('PGPASSWORD')
 PGHOST = os.environ.get('PGHOST')
