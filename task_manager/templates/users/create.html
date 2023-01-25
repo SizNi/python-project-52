@@ -9,8 +9,7 @@
 
   <div class="container wrapper flex-grow-1">
     <h1 class="my-4">{% translate 'Регистрация' %}</h1>
-    <form method="post">
-      {% csrf_token %}
+    <form method="post">{% csrf_token %}
       {% for field in registration_form %}
           {{field.label_tag}}
           {{field}}
