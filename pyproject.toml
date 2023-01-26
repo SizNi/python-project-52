@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "task_manager"}]
 
 [tool.poetry.dependencies]
-python = "^3.8.1"
+python = "^3.8"
 django = "^4.1.5"
 python-dotenv = "^0.21.0"
 i18n = "^0.2"
@@ -15,7 +15,6 @@ django-bootstrap4 = "^22.3"
 psycopg2-binary = "^2.9.5"
 django-filter = "^22.1"
 django-bootstrap-form = "^3.4"
-rollbar = "^0.16.3"
 gunicorn = "^20.1.0"
 flake8 = "^4.0.1"
 postgres = "^4.0"
