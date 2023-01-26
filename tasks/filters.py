@@ -1,10 +1,13 @@
 from django import forms
-from django_filters import FilterSet, BooleanFilter
+from django_filters import FilterSet, BooleanFilter, ModelChoiceFilter
 from django.utils.translation import gettext_lazy as _
 from tasks.models import Task
+from labels.models import Labels
 
 
 class TasksFilterForm(FilterSet):
+    labels = ModelChoiceFilter(label=_('Label'),
+                            queryset=Labels.objects.all())
     only_user = BooleanFilter(
         label=_('Только свои задачи'),
         widget=forms.CheckboxInput(),
