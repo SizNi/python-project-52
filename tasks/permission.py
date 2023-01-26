@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class TaskDeletePermission(PermissionRequiredMixin):
 
     def has_permission(self):
-        return self.get_object().creator == self.request.user
+        return self.get_object().author == self.request.user
 
     def handle_no_permission(self):
         messages.error(self.request, _(

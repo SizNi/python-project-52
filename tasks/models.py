@@ -9,21 +9,21 @@ class Task(models.Model):
     description = models.TextField(verbose_name=_('Описание'), blank=True)
     created_date = models.DateTimeField(verbose_name=_("Created date"),
                                         default=timezone.now)
-    task_user = models.ForeignKey(
+    executor = models.ForeignKey(
         to=get_user_model(),
         on_delete=models.CASCADE,
         blank=True,
         null=True,
         default='',
-        related_name='task_users',
+        related_name='executors',
         verbose_name=_('Исполнитель')
     )
-    creator = models.ForeignKey(
+    author = models.ForeignKey(
         to=get_user_model(),
         on_delete=models.PROTECT,
         blank=False,
         default='',
-        related_name='creator',
+        related_name='author',
         verbose_name=_('Автор')
     )
     status = models.ForeignKey(

@@ -22,7 +22,7 @@ class TasksView(FilterView):
 @method_decorator(login_required, name='dispatch')
 class TasksCreateView(SuccessMessageMixin, CreateView):
     model = Task
-    fields = ['name', 'description', 'status', 'task_user', 'labels']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')
@@ -32,14 +32,14 @@ class TasksCreateView(SuccessMessageMixin, CreateView):
                      }
 
     def form_valid(self, form):
-        form.instance.creator = self.request.user
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
 
 @method_decorator(login_required, name='dispatch')
 class TasksUpdateView(SuccessMessageMixin, UpdateView):
     model = Task
-    fields = ['name', 'description', 'status', 'task_user', 'labels']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')
@@ -59,7 +59,7 @@ class TasksDeleteView(TaskDeletePermission, SuccessMessageMixin, DeleteView):
     extra_context = {'title': _('Удаление задачи'),
                      'btn': _('Да, удалить'),
                      }
-    permission_required = 'task.creator'
+    permission_required = 'task.author'
 
 
 class TaskView(DetailView):

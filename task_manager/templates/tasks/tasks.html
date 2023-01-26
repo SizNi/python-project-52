@@ -41,6 +41,7 @@
         </tr>
       </thead>
       <tbody>
+        {% if tasks %}
         {% for task in tasks %}
           <tr>
             <td>{{ task.id }}</td>
@@ -48,8 +49,8 @@
               <a href="{{ task.id }}/">{{ task.name }}</a>
             </td>
             <td>{{ task.status }}</td>
-            <td>{{ task.creator }}</td>
-            <td>{{ task.task_user }}</td>
+            <td>{{ task.author }}</td>
+            <td>{{ task.executor }}</td>
             <td>{{ task.created_date }}</td>
             <td>
               <a href="{% url 'task_update' task.id %}">{% translate 'Изменить' %}</a>
@@ -58,6 +59,7 @@
             </td>
           </tr>
         {% endfor %}
+        {% endif %}
       </tbody>
     </table>
   </div>

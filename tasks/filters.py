@@ -13,11 +13,11 @@ class TasksFilterForm(FilterSet):
     )
 
     def only_self(self, queryset, name, value):
-        result = queryset.filter(creator=self.request.user)
+        result = queryset.filter(author=self.request.user)
         if value:
             return result
         return queryset
 
     class Meta:
         model = Task
-        fields = ['status', 'task_user', 'labels']
+        fields = ['status', 'executor', 'labels']
