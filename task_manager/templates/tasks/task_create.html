@@ -13,17 +13,7 @@
     </h1>
     <form method="post" class="form">
         {% csrf_token %}
-        {% bootstrap_field form.name %}
-        {% bootstrap_field form.description %}
-        {% bootstrap_field form.status %}
-        <div class="form-group"><label for="id_executor">Исполнитель</label><select name="executor" class="form-control" title="" id="id_executor">
-            <option value="" selected="">---------</option>
-            {% for elem in executor_opt %}
-            <option value="{{elem.id}}">{{elem.first_name}} {{elem.last_name}}</option>
-            {% endfor %}
-          
-        </select></div>
-        {% bootstrap_field form.labels %}
+        {% bootstrap_form form %}
 
         <button submit="{{ btn }}" class="btn btn-primary">
             {{ btn }}
