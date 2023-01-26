@@ -44,7 +44,7 @@ class LabelUpdateView(SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('labels_home')
     success_message = _('Метка успешно изменена')
     extra_context = {'title': _('Изменение метки'),
-                     'btn': _('изменить'),
+                     'btn': _('Изменить'),
                      }
 
 
