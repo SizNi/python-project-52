@@ -32,7 +32,10 @@ class LoginView(TemplateView):
                 login(request, user)
                 messages.info(request, _('Вы залогинены'))
                 return redirect('home')
-        messages.error(request, _('Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру.'))
+        messages.error(request, _(
+            'Пожалуйста, введите правильные имя пользователя и пароль.'
+            'Оба поля могут быть чувствительны к регистру.'
+            ))
         context['login_form'] = form
         return render(request, 'login.html', context)
 

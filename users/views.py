@@ -44,9 +44,8 @@ class CreateView(CreateView):
             user = form.save()
             form.cleaned_data.get('username')
             form.cleaned_data.get('password1')
-            login(request, user)
             messages.info(request, _('Пользователь успешно зарегистрирован'))
-            return redirect(reverse_lazy('home'))
+            return redirect(reverse_lazy('login'))
         else:
             context['registration_form'] = form
             return render(request, 'create.html', context)
