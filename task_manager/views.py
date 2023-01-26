@@ -30,7 +30,7 @@ class LoginView(TemplateView):
 
             if user:
                 login(request, user)
-                messages.info(request, _('Вход произведен!'))
+                messages.info(request, _('Вы залогинены'))
                 return redirect('home')
         messages.error(request, _('Неверное имя пользователя или пароль.'))
         context['login_form'] = form
