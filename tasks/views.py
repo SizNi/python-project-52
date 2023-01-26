@@ -1,4 +1,3 @@
-from urllib import request
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -52,9 +51,9 @@ class TasksUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'task_create.html'
     context_object_name = "tasks"
     success_url = reverse_lazy('tasks_home')
-    success_message = _('Задача успешно обновлена')
-    extra_context = {'title': _('Обновление задачи'),
-                     'btn': _('обновить'),
+    success_message = _('Задача успешно изменена')
+    extra_context = {'title': _('Изменение задачи'),
+                     'btn': _('Изменить'),
                      }
 
     def get_context_data(self, **kwargs):

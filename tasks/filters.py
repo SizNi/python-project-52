@@ -7,7 +7,7 @@ from labels.models import Labels
 
 class TasksFilterForm(FilterSet):
     labels = ModelChoiceFilter(label=_('Метка'),
-                            queryset=Labels.objects.all())
+                               queryset=Labels.objects.all())
     only_user = BooleanFilter(
         label=_('Только свои задачи'),
         widget=forms.CheckboxInput(),
