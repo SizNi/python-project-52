@@ -19,7 +19,7 @@ class CreateUserForm(UserCreationForm):
                                 widget=forms.TextInput(
                                 attrs={'placeholder': _('Фамилия'),
                                        'class': 'form-control', }))
-    nickname = forms.CharField(label=_('Имя пользователя'),
+    username = forms.CharField(label=_('Имя пользователя'),
                                max_length=20,
                                label_suffix='',
                                required=True,
@@ -57,7 +57,7 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = (
-            'first_name', 'last_name', 'nickname', 'password1', 'password2'
+            'first_name', 'last_name', 'username', 'password1', 'password2'
         )
 
 
@@ -74,7 +74,7 @@ class UpdateUserForm(UserCreationForm):
                                 widget=forms.TextInput(
                                 attrs={'placeholder': _('Фамилия'),
                                        'class': 'form-control', }))
-    nickname = forms.CharField(label=_('Имя пользователя'),
+    username = forms.CharField(label=_('Имя пользователя'),
                                max_length=20,
                                label_suffix='',
                                help_text=_('Не более 20 символов.'),
@@ -108,5 +108,5 @@ class UpdateUserForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = (
-            'first_name', 'last_name', 'nickname', 'password1', 'password2'
+            'first_name', 'last_name', 'username', 'password1', 'password2'
         )

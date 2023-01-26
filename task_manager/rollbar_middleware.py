@@ -25,7 +25,7 @@ class CustomRollbarNotifierMiddleware(RollbarNotifierMiddleware):
             payload_data = {
                 'person': {
                     'id': request.user.id,
-                    'username': request.user.nickname,
+                    'username': request.user.username,
                 },
             }
 

@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class LoginUserForm(forms.ModelForm):
 
-    nickname = forms.CharField(label=_('Имя пользователя'),
+    username = forms.CharField(label=_('Имя пользователя'),
                                max_length=20,
                                label_suffix='',
                                required=True,
@@ -29,12 +29,12 @@ class LoginUserForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('nickname', 'password')
+        fields = ('username', 'password')
 
     def clean(self):
         if self.is_valid():
-            nickname = self.cleaned_data['nickname']
+            username = self.cleaned_data['username']
             password = self.cleaned_data['password']
-            if not authenticate(nickname=nickname, password=password):
+            if not authenticate(username=username, password=password):
                 raise forms.ValidationError(
                     'Неверное имя пользователя или пароль')

@@ -42,7 +42,7 @@ class CreateView(CreateView):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            form.cleaned_data.get('nickname')
+            form.cleaned_data.get('username')
             form.cleaned_data.get('password1')
             login(request, user)
             messages.info(request, _('Пользователь создан, вход произведен!'))

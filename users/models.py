@@ -7,11 +7,11 @@ from users.manager import CustomUserManager
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100)
-    nickname = models.CharField(max_length=20, null=True, unique=True)
+    username = models.CharField(max_length=20, null=True, unique=True)
     password = models.CharField(max_length=100)
     date_joined = models.DateTimeField(default=timezone.now)
 
-    USERNAME_FIELD = 'nickname'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['password']
 
     @property
@@ -21,4 +21,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.nickname
+        return self.username

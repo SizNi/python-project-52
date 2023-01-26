@@ -24,9 +24,9 @@ class LoginView(TemplateView):
         form = LoginUserForm(request.POST)
 
         if form.is_valid():
-            nickname = request.POST['nickname']
+            username = request.POST['username']
             password = request.POST['password']
-            user = authenticate(nickname=nickname, password=password)
+            user = authenticate(username=username, password=password)
 
             if user:
                 login(request, user)
