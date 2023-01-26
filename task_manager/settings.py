@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
-
+import dj_database_url
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -27,7 +27,8 @@ ALLOWED_HOSTS = [
     'python-project-52-production-e016.up.railway.app',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-e016.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://python-project-52-production-e016.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -65,11 +66,11 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
-            BASE_DIR / 'templates'/ 'users',
-            BASE_DIR / 'templates'/ 'statuses',
-            BASE_DIR / 'templates'/ 'tasks',
-            BASE_DIR / 'templates'/ 'labels',
-                ],
+            BASE_DIR / 'templates' / 'users',
+            BASE_DIR / 'templates' / 'statuses',
+            BASE_DIR / 'templates' / 'tasks',
+            BASE_DIR / 'templates' / 'labels',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,15 +97,18 @@ ROLLBAR = {
 
 DATABASES = {
     'default': {
-        
+
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': PGNAME,                      
+        'NAME': PGNAME,
         'USER': PGUSER,
         'PASSWORD': PGPASSWORD,
         'HOST': PGHOST,
         'PORT': PGPORT,
     }
 }
+db_config = dj_database_url.config()
+if db_config:
+    DATABASES['default'] = db_config
 
 AUTH_USER_MODEL = 'users.CustomUser'
 # Password validation
