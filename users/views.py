@@ -6,7 +6,7 @@ from django.views.generic import (TemplateView,
                                   )
 from users.models import CustomUser
 from users.forms import CreateUserForm, UpdateUserForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
@@ -41,7 +41,7 @@ class CreateView(CreateView):
         context = {}
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            form.save()
             form.cleaned_data.get('username')
             form.cleaned_data.get('password1')
             messages.info(request, _('Пользователь успешно зарегистрирован'))
