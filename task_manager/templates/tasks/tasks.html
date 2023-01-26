@@ -8,7 +8,13 @@
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form method="get" class="form-check">
-                {% bootstrap_form filter.form %}
+              {% bootstrap_field filter.form.status %}
+              {% bootstrap_field filter.form.executor %}
+                <div class="form-group"><label for="id_labels">Метка</label><select name="labels" class="form-control" title="" id="id_labels" multiple="">
+                {% for id, name in filter.form.labels.field.choices %}
+                  <option value="{{id}}">{{name}}</option>
+                {% endfor %}
+                </select></div>                
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Показать" />
                   </div>
