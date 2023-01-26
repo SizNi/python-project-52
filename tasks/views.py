@@ -32,7 +32,7 @@ class TasksCreateView(SuccessMessageMixin, CreateView):
         'title': _('Создание задачи'),
         'btn': _('Создать'),
     }
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['executor_opt'] = CustomUser.objects.all()
@@ -55,7 +55,7 @@ class TasksUpdateView(SuccessMessageMixin, UpdateView):
     extra_context = {'title': _('Обновление задачи'),
                      'btn': _('обновить'),
                      }
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['executor_opt'] = CustomUser.objects.all()

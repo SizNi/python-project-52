@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Labels(models.Model):
-    name = models.CharField(max_length=120, verbose_name=_('Имя'))
+    name = models.CharField(max_length=120, verbose_name=_('Имя'), unique=True)
     created_date = models.DateTimeField(verbose_name=_("Created date"),
                                         default=timezone.now)
 

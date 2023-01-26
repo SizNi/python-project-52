@@ -2,7 +2,7 @@ from django import forms
 from django_filters import FilterSet, BooleanFilter
 from django.utils.translation import gettext_lazy as _
 from tasks.models import Task
-
+from users.models import CustomUser
 
 class TasksFilterForm(FilterSet):
     only_user = BooleanFilter(

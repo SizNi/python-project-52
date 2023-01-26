@@ -8,16 +8,7 @@
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form method="get" class="form-check">
-              {% bootstrap_field filter.form.status %}
-              {% bootstrap_field filter.form.executor %}
-              <div class="form-group"><label for="id_executor">Метка</label><select name="labels" class="form-control" title="" id="id_labels">
-                <option value="" selected="">---------</option>
-                {% for id, name in filter.form.labels.field.choices%}
-                <option value="{{id}}">{{name}}</option>
-                {% endfor %}
-              
-            </select></div>
-              {% bootstrap_field filter.form.only_user %}
+                {% bootstrap_form filter.form %}
                 <div class="form-group">
                     <input class="btn btn-primary" type="submit" value="Показать" />
                   </div>
@@ -58,8 +49,8 @@
               <a href="{{ task.id }}/">{{ task.name }}</a>
             </td>
             <td>{{ task.status }}</td>
-            <td>{{ task.author.first_name }} {{ task.author.last_name }}</td>
-            <td>{{ task.executor.first_name }} {{ task.executor.last_name }}</td>
+            <td>{{ task.author }}</td>
+            <td>{{ task.executor }}</td>
             <td>{{ task.created_date }}</td>
             <td>
               <a href="{% url 'task_update' task.id %}">{% translate 'Изменить' %}</a>
