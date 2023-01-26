@@ -45,7 +45,7 @@ class CreateView(CreateView):
             form.cleaned_data.get('username')
             form.cleaned_data.get('password1')
             login(request, user)
-            messages.info(request, _('Пользователь создан, вход произведен!'))
+            messages.info(request, _('Пользователь успешно зарегистрирован'))
             return redirect(reverse_lazy('home'))
         else:
             context['registration_form'] = form
@@ -67,7 +67,7 @@ class UserUpdateView(UpdateView):
             return render(request, 'update.html', context)
         else:
             messages.error(request, _(
-                'У вас нет прав для редактирования этого пользователя'))
+                'У вас нет прав для изменения другого пользователя.'))
             return redirect('users_home')
 
     def post(self, request, *args, **kwargs):
@@ -77,7 +77,7 @@ class UserUpdateView(UpdateView):
         form = UpdateUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            messages.info(request, _('Информация обновлена!'))
+            messages.info(request, _('Пользователь успешно изменён'))
             return redirect('home')
         else:
             context['update_form'] = form
@@ -98,7 +98,7 @@ class UserDeleteView(DeleteView):
             return render(request, 'delete.html', context)
         else:
             messages.error(request, _(
-                'У вас нет прав для удаления этого пользователя'))
+                'У вас нет прав для изменения другого пользователя.'))
             return redirect('users_home')
 
     def post(self, request, *args, **kwargs):
@@ -108,5 +108,5 @@ class UserDeleteView(DeleteView):
             user = CustomUser.objects.get(id=user_id)
             logout(request)
             user.delete()
-            messages.info(request, _('Пользователь удален!'))
+            messages.info(request, _('Пользователь успешно удалён'))
             return redirect('users_home')

@@ -32,7 +32,7 @@ class LoginView(TemplateView):
                 login(request, user)
                 messages.info(request, _('Вы залогинены'))
                 return redirect('home')
-        messages.error(request, _('Неверное имя пользователя или пароль.'))
+        messages.error(request, _('Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру.'))
         context['login_form'] = form
         return render(request, 'login.html', context)
 
@@ -40,6 +40,6 @@ class LoginView(TemplateView):
 class LogoutView(TemplateView):
 
     def get(self, request, *args, **kwargs):
-        messages.info(request, _('Успешно вышли!'))
+        messages.info(request, _('Вы разлогинены'))
         logout(request)
         return redirect('home')

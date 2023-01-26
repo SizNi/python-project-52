@@ -6,6 +6,7 @@ from django.views.generic import (
     DeleteView
 )
 from statuses.models import TaskStatus
+from tasks.models import Task
 from statuses.forms import CreateStatusForm, UpdateStatusForm
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -41,7 +42,7 @@ class CreateStatusesView(CreateView):
         form = CreateStatusForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.info(request, _('Статус создан!'))
+            messages.info(request, _('Статус успешно создан'))
             return redirect(reverse_lazy('statuses_home'))
         else:
             context['createstatus_form'] = form
@@ -89,7 +90,13 @@ class DeleteStatusView(DeleteView):
         status_id = kwargs.get('pk')
         context = {}
         status = TaskStatus.objects.get(id=status_id)
+        if Task.objects.filter(status=status):
+            messages.error(
+                self.request,
+                _('Невозможно удалить статус, потому что он используется')
+            )
+            return redirect('statuses_home')
         context['status'] = status
         status.delete()
-        messages.info(request, _('Статус удален'))
+        messages.info(request, _('Статус успешно удалён'))
         return redirect('statuses_home')
