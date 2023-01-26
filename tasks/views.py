@@ -1,3 +1,4 @@
+from urllib import request
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django_filters.views import FilterView
 from django.contrib.messages.views import SuccessMessageMixin
