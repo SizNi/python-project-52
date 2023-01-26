@@ -77,7 +77,7 @@ class UserUpdateView(UpdateView):
         if form.is_valid():
             form.save()
             messages.info(request, _('Пользователь успешно изменён'))
-            return redirect('home')
+            return redirect('users_home')
         else:
             context['update_form'] = form
             context['pk'] = user_id
